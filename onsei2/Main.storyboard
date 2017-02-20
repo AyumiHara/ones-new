@@ -28,7 +28,7 @@
                                     <navigationItem title="Title" id="2X0-2l-2fh">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vPS-tY-7ya">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="ZHh-MZ-7g7"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="6Ss-nq-96T"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -43,7 +43,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XHD-bt-sU3" id="fu6-Hr-aaQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -73,7 +73,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="テキストをにゅうりょく" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7U6-za-m78">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="テキストを入力" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7U6-za-m78">
                                         <rect key="frame" x="8" y="62" width="359" height="192"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,6 +114,27 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スピード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlf-Dg-LhR">
+                                        <rect key="frame" x="51" y="583" width="70" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="声の高さ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZb-Ud-MmC">
+                                        <rect key="frame" x="50" y="524" width="70" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="音量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGR-lx-gEc">
+                                        <rect key="frame" x="50" y="464" width="35" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.7725490196" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -122,8 +143,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="M9v-wz-k8L"/>
                     <connections>
-                        <outlet property="languagePickerView" destination="La8-HA-7Qv" id="Rxm-cj-g5V"/>
+                        <outlet property="languagePickerView" destination="La8-HA-7Qv" id="9tA-9Z-cIG"/>
+                        <outlet property="soundlabel" destination="CGR-lx-gEc" id="iEu-TX-HXi"/>
+                        <outlet property="soundslider" destination="A0L-Ex-v8C" id="Cuw-LQ-fNH"/>
                         <outlet property="speechText" destination="7U6-za-m78" id="ZER-Ix-SSO"/>
+                        <outlet property="speedlabel" destination="dlf-Dg-LhR" id="rKk-JB-K5h"/>
+                        <outlet property="speedslider" destination="yy5-7t-vfl" id="EPS-fk-XCb"/>
+                        <outlet property="tonelabel" destination="UZb-Ud-MmC" id="Ki1-NG-odh"/>
+                        <outlet property="toneslider" destination="erl-dB-p1e" id="UEs-7G-pv8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

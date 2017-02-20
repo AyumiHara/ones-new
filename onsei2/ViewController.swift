@@ -16,7 +16,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     //    @IBOutlet weak var languagePickerView: UIPickerView!
     @IBOutlet weak var nameLabel : UILabel!
     @IBOutlet var languagePickerView: UIPickerView? = UIPickerView()
+    @IBOutlet weak var soundslider: UISlider!
+    @IBOutlet weak var soundlabel: UILabel!
+    @IBOutlet weak var speedslider: UISlider!
+    @IBOutlet weak var speedlabel: UILabel!
+    @IBOutlet weak var toneslider: UISlider!
+    @IBOutlet weak var tonelabel: UILabel!
     
+
+
     /** SpeechSynthesizerクラス */
     var talker = AVSpeechSynthesizer()
     var utterance = AVSpeechUtterance()
@@ -33,13 +41,33 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad(){
         super.viewDidLoad()
         talker.speak(utterance)
-        //声の高さ（0.5~2.0）
-        utterance.pitchMultiplier = 0.5
-        // 話す速度を設定（0.0〜1.0）
-        utterance.rate = 0.5
+        
+   /*      // 話す速度を設定（0.0〜1.0）
+         utterance.rate = 0.5
+         */
         languagePickerView?.dataSource = self
         languagePickerView?.delegate = self
         self.view.addSubview(languagePickerView!)
+
+        
+       // UISliderの最大値・最小値を指定
+        soundslider.minimumValue = 0.0
+        soundslider.maximumValue = 100.0
+        
+        speedslider.minimumValue = 0.0
+        speedslider.maximumValue = 1.0
+        
+        toneslider.minimumValue = 0.5
+        toneslider.maximumValue = 2.0
+        // UISliderの初期値を指定
+        soundslider.setValue(50.0, animated: true)
+        speedslider.setValue(0.5, animated: true)
+        toneslider.setValue(1.25, animated: true)
+        
+        
+      
+ 
+        
         
     }
     
@@ -75,8 +103,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         // 言語を日本に設定
         utterance.voice = AVSpeechSynthesisVoice(language:language3)
         // 実行
+        utterance.rate = speedslider.value
+        utterance.volume = soundslider.value
+        utterance.pitchMultiplier = toneslider.value
+    
+       
+        
         self.talker.speak(utterance)
-    }
+             }
     
     /*    @IBAction func didTapUSButton(sender: UIButton)
      {
@@ -89,8 +123,37 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
      }
      */
     
-    @IBAction func soundSlider(sender: UISlider) {
+ /*   @IBAction func speedsliderChanged(_ sender: UISlider) {
         
+        
+        
+        
+        //UILabelの値を更新
+        //sender.valueでUISliderの値が取得可能
+       utterance.rate = sender.value
+        print(sender.value)
+        //soundlabel.text = "value: \(sender.value)"
+        
+        
+        //ちなみに、sliderを使って音量や再生速度を調節するには、sender.valueの値をutterance.rate に代入すればよい
+        //utterance.rate = sender.value
+        
+        //補足
+        //声のボリュームを指定するには以下のコード
+        //utterance.volume =　sender.value
     }
+    
+    @IBAction func soundSliderChanged(_ sender: UISlider){
+        utterance.volume = sender.value
+
+        print(sender.value)
+    }
+    
+    @IBAction func tonesliderChanged(_ sender: UISlider){
+        utterance.pitchMultiplier = sender.value
+        print(sender.value)
+
+    }
+    */
     
 }
