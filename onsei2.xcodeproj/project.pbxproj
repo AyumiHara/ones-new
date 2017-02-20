@@ -14,6 +14,7 @@
 		1E98E0CF1E5AE3F50040A543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E98E0CD1E5AE3F50040A543 /* LaunchScreen.storyboard */; };
 		1E98E0DA1E5AE3F50040A543 /* onsei2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98E0D91E5AE3F50040A543 /* onsei2Tests.swift */; };
 		1E98E0E51E5AE3F50040A543 /* onsei2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98E0E41E5AE3F50040A543 /* onsei2UITests.swift */; };
+		1E98E0F31E5AE4060040A543 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98E0F21E5AE4060040A543 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1E98E0E01E5AE3F50040A543 /* onsei2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = onsei2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E98E0E41E5AE3F50040A543 /* onsei2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onsei2UITests.swift; sourceTree = "<group>"; };
 		1E98E0E61E5AE3F50040A543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E98E0F21E5AE4060040A543 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				1E98E0C41E5AE3F50040A543 /* AppDelegate.swift */,
 				1E98E0C61E5AE3F50040A543 /* ViewController.swift */,
+				1E98E0F21E5AE4060040A543 /* TableViewController.swift */,
 				1E98E0C81E5AE3F50040A543 /* Main.storyboard */,
 				1E98E0CB1E5AE3F50040A543 /* Assets.xcassets */,
 				1E98E0CD1E5AE3F50040A543 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E98E0C71E5AE3F50040A543 /* ViewController.swift in Sources */,
+				1E98E0F31E5AE4060040A543 /* TableViewController.swift in Sources */,
 				1E98E0C51E5AE3F50040A543 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
