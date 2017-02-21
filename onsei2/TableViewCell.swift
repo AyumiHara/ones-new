@@ -10,6 +10,9 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
     @IBOutlet var listLabel: UILabel!
+    @IBOutlet var flaglabel: UILabel!
+    
+    var flaglist = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
 
     override func awakeFromNib() {
         super.awakeFromNib()

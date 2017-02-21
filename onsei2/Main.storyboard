@@ -43,7 +43,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XHD-bt-sU3" id="fu6-Hr-aaQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -73,7 +73,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="テキストを入力" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7U6-za-m78">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7U6-za-m78">
                                         <rect key="frame" x="8" y="62" width="359" height="192"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,7 +81,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWn-xI-RCX">
-                                        <rect key="frame" x="137" y="397" width="102" height="42"/>
+                                        <rect key="frame" x="136" y="384" width="102" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="読み上げ"/>
@@ -135,6 +135,30 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zy-lx-Ljd">
+                                        <rect key="frame" x="157" y="434" width="62" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="一時停止"/>
+                                        <connections>
+                                            <action selector="pauseWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ZU-Nh-SsL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6E-75-izD">
+                                        <rect key="frame" x="70" y="434" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="再開"/>
+                                        <connections>
+                                            <action selector="playWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HUh-SM-IMg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H19-95-0WN">
+                                        <rect key="frame" x="279" y="434" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="終了"/>
+                                        <connections>
+                                            <action selector="stopWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gTu-Nm-4bq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.7725490196" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -146,7 +170,7 @@
                         <outlet property="languagePickerView" destination="La8-HA-7Qv" id="9tA-9Z-cIG"/>
                         <outlet property="soundlabel" destination="CGR-lx-gEc" id="iEu-TX-HXi"/>
                         <outlet property="soundslider" destination="A0L-Ex-v8C" id="Cuw-LQ-fNH"/>
-                        <outlet property="speechText" destination="7U6-za-m78" id="ZER-Ix-SSO"/>
+                        <outlet property="speechText" destination="7U6-za-m78" id="P8m-jO-3o3"/>
                         <outlet property="speedlabel" destination="dlf-Dg-LhR" id="rKk-JB-K5h"/>
                         <outlet property="speedslider" destination="yy5-7t-vfl" id="EPS-fk-XCb"/>
                         <outlet property="tonelabel" destination="UZb-Ud-MmC" id="Ki1-NG-odh"/>

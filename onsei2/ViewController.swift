@@ -35,8 +35,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var language2 = ["ar-SA","en-ZA","th-TH","nl-BE","en-AU","de-DE","en-US","pt-BR","pl-PL","en-IE","el-GR","id-ID","sv-SE","tr-TR","pt-PT","ja-JP","ko-KR","hu-HU","cs-CZ","da-DK","es-MX","fr-CA","nl-NL","fi-FI","es-ES","it-IT","ro-RO","no-NO","zh-HK","zh-TW","sk-SK","zh-CN","ru-RU","en-GB","fr-FR","hi-IN"]
     
-    var language3 :String!
+   var languagetext = ["قم بإدخال النص","enter the text","รุณากรอกข้อความ","Typ tekst","Bitte geben Sie den Text","Geben Sie Text","enter the text","digite o texto","wpisz tekst","enter the text","Πληκτρολογήστε κείμενο","Teks Masukkan","Skriv text","metin girin","Digite o texto","テキストを入力","텍스트를 입력하십시오","Kérjük írja be a képen","Prosím zadejte text","Indtast teksten","Por favor introduzca el texto","S’il vous plaît entrer le texte","Typ tekst","Ole hyvä ja kirjoita teksti","Por favor  introduzca el texto","Inserisci il testo","Vă rugăm să introduceți textul","Vennligst skriv inn teksten","请输入文字”","请输入文字”","Prosím zadajte text","请输入文字","Пожалуйста  введите текст","enter the text","S’il vous plaît entrer le texte","अपना पाठ दर्ज करें"]
     
+    var language3 :String!
+    var textdefault :String!
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -63,6 +65,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         soundslider.setValue(50.0, animated: true)
         speedslider.setValue(0.5, animated: true)
         toneslider.setValue(1.25, animated: true)
+     //   speechText.text = String(textdefault)
+        
         
         
       
@@ -90,6 +94,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         print("値: \(list[row])")
         print("言語\(language2[row])")
         language3 = String(language2[row])
+        textdefault = String(languagetext[row])
+        speechText.text = String(textdefault)
         
     }
     
@@ -111,6 +117,21 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         self.talker.speak(utterance)
              }
+    
+    @IBAction func pause(sender: UIButton){
+        
+        talker.pauseSpeaking(at: AVSpeechBoundary.immediate)
+        
+    }
+    
+    @IBAction func stop(sender: UIButton){
+        talker.stopSpeaking(at: AVSpeechBoundary.immediate)
+    }
+    
+    @IBAction func play(sender: UIButton){
+        talker.continueSpeaking()
+        
+    }
     
     /*    @IBAction func didTapUSButton(sender: UIButton)
      {
