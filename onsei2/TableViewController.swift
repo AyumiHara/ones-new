@@ -5,22 +5,56 @@
 //  Created by 原 あゆみ on 2017/02/20.
 //  Copyright © 2017年 原 あゆみ. All rights reserved.
 //
-
+import Foundation
 import UIKit
+import RealmSwift
 
-class TableViewController: UIViewController {
+
+class TableViewController: UITableViewController {
+    var realmUser : UserData!
+    let realm = try! Realm()
+     var Items: Results<UserData>!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        // Do any additional setup after loading the view.
-    }
+        do{
+            let realm = try Realm()
+            Items = realm.objects(UserData)
+            tableView.reloadData()
+        }catch{
+            
+        }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)->Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexpath: IndexPath)->UITableViewCell {
+        
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
+        
+        let object = Items[indexpath.row]
+        
+        cell.textLabel?.text = object.text
+                
+        return cell
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    
+        
+
 
     /*
     // MARK: - Navigation

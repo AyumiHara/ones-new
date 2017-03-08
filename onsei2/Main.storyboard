@@ -28,7 +28,7 @@
                                     <navigationItem title="Title" id="2X0-2l-2fh">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vPS-tY-7ya">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="6Ss-nq-96T"/>
+                                                <segue destination="BYZ-38-t0r" kind="push" id="6Ss-nq-96T"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J66-TD-rR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-921" y="137"/>
+            <point key="canvasLocation" x="-801" y="135"/>
         </scene>
         <!--Title-->
         <scene sceneID="tne-QT-ifu">
@@ -80,15 +80,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWn-xI-RCX">
-                                        <rect key="frame" x="136" y="384" width="102" height="42"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="読み上げ"/>
-                                        <connections>
-                                            <action selector="didTapButtonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aHu-BF-bNw"/>
-                                        </connections>
-                                    </button>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="La8-HA-7Qv">
                                         <rect key="frame" x="0.0" y="262" width="375" height="127"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -96,69 +87,94 @@
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="A0L-Ex-v8C">
                                         <rect key="frame" x="48" y="486" width="279" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="soundSliderChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TQG-Zo-22z"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="erl-dB-p1e">
                                         <rect key="frame" x="48" y="545" width="279" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="tonesliderChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Emx-CR-dDS"/>
+                                        </connections>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yy5-7t-vfl">
                                         <rect key="frame" x="49" y="602" width="279" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="speedsliderChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z6w-ht-J1z"/>
+                                        </connections>
                                     </slider>
                                     <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o0t-PW-JRt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <items>
                                             <navigationItem title="Title" id="eX0-LF-oav">
-                                                <barButtonItem key="rightBarButtonItem" systemItem="save" id="ntH-sx-5Pn"/>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="save" id="ntH-sx-5Pn">
+                                                    <connections>
+                                                        <action selector="saveWithSender:" destination="BYZ-38-t0r" id="xP5-XU-nYC"/>
+                                                    </connections>
+                                                </barButtonItem>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スピード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlf-Dg-LhR">
-                                        <rect key="frame" x="51" y="583" width="70" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="声の高さ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZb-Ud-MmC">
-                                        <rect key="frame" x="50" y="524" width="70" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="音量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGR-lx-gEc">
-                                        <rect key="frame" x="50" y="464" width="35" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zy-lx-Ljd">
-                                        <rect key="frame" x="157" y="434" width="62" height="30"/>
+                                        <rect key="frame" x="173" y="397" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="一時停止"/>
                                         <connections>
-                                            <action selector="pauseWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ZU-Nh-SsL"/>
+                                            <action selector="playbutton" destination="BYZ-38-t0r" eventType="touchUpInside" id="9R7-yw-0c7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6E-75-izD">
-                                        <rect key="frame" x="70" y="434" width="31" height="30"/>
+                                        <rect key="frame" x="71" y="397" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="再開"/>
                                         <connections>
-                                            <action selector="playWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HUh-SM-IMg"/>
+                                            <action selector="startbuttonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4I1-mj-WAI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H19-95-0WN">
-                                        <rect key="frame" x="279" y="434" width="31" height="30"/>
+                                        <rect key="frame" x="280" y="397" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="終了"/>
                                         <connections>
-                                            <action selector="stopWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gTu-Nm-4bq"/>
+                                            <action selector="stopbuttonWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2zO-o1-iGK"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZeZ-gb-zZa">
+                                        <rect key="frame" x="173" y="397" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_120931_256-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="hme-AA-5Um">
+                                        <rect key="frame" x="333" y="486" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconDownload.cgi-6.png" translatesAutoresizingMaskIntoConstraints="NO" id="ICI-sw-lgW">
+                                        <rect key="frame" x="70" y="397" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconDownload.cgi-4.png" translatesAutoresizingMaskIntoConstraints="NO" id="x5b-Ad-MQ1">
+                                        <rect key="frame" x="280" y="397" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_148101_256.png" translatesAutoresizingMaskIntoConstraints="NO" id="tET-Gk-SGR">
+                                        <rect key="frame" x="8" y="602" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_115501_256.png" translatesAutoresizingMaskIntoConstraints="NO" id="cvH-uK-u4u">
+                                        <rect key="frame" x="8" y="545" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_115481_256.png" translatesAutoresizingMaskIntoConstraints="NO" id="u4E-bt-p3o">
+                                        <rect key="frame" x="333" y="545" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_115541_256.png" translatesAutoresizingMaskIntoConstraints="NO" id="rv5-F0-8wS">
+                                        <rect key="frame" x="333" y="602" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_120931_256.png" translatesAutoresizingMaskIntoConstraints="NO" id="3c8-SC-p2P">
+                                        <rect key="frame" x="12" y="486" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40000000000000002" green="0.7725490196" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -168,18 +184,29 @@
                     <navigationItem key="navigationItem" title="Title" id="M9v-wz-k8L"/>
                     <connections>
                         <outlet property="languagePickerView" destination="La8-HA-7Qv" id="9tA-9Z-cIG"/>
-                        <outlet property="soundlabel" destination="CGR-lx-gEc" id="iEu-TX-HXi"/>
+                        <outlet property="playpausebutton" destination="0zy-lx-Ljd" id="bK7-AU-p9G"/>
+                        <outlet property="playpauseimage" destination="ZeZ-gb-zZa" id="PPj-2G-uTF"/>
                         <outlet property="soundslider" destination="A0L-Ex-v8C" id="Cuw-LQ-fNH"/>
                         <outlet property="speechText" destination="7U6-za-m78" id="P8m-jO-3o3"/>
-                        <outlet property="speedlabel" destination="dlf-Dg-LhR" id="rKk-JB-K5h"/>
                         <outlet property="speedslider" destination="yy5-7t-vfl" id="EPS-fk-XCb"/>
-                        <outlet property="tonelabel" destination="UZb-Ud-MmC" id="Ki1-NG-odh"/>
+                        <outlet property="startimage" destination="ICI-sw-lgW" id="rWb-8x-BGv"/>
+                        <outlet property="stopimage" destination="x5b-Ad-MQ1" id="qvd-V3-SCk"/>
                         <outlet property="toneslider" destination="erl-dB-p1e" id="UEs-7G-pv8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="329" y="113"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconDownload.cgi-4.png" width="200" height="200"/>
+        <image name="iconDownload.cgi-6.png" width="200" height="200"/>
+        <image name="icon_115481_256.png" width="256" height="256"/>
+        <image name="icon_115501_256.png" width="256" height="256"/>
+        <image name="icon_115541_256.png" width="256" height="256"/>
+        <image name="icon_120931_256-2.png" width="256" height="256"/>
+        <image name="icon_120931_256.png" width="256" height="256"/>
+        <image name="icon_148101_256.png" width="256" height="256"/>
+    </resources>
 </document>
