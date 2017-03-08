@@ -10,14 +10,18 @@ import UIKit
 import RealmSwift
 
 
-class TableViewController: UITableViewController {
+class TableViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
     var realmUser : UserData!
     let realm = try! Realm()
-     var Items: Results<UserData>!
+    var Items: Results<UserData>!
     
-
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         do{
             let realm = try Realm()
             Items = realm.objects(UserData)
@@ -25,25 +29,28 @@ class TableViewController: UITableViewController {
         }catch{
             
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)->Int {
-        return 1
+    
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)->Int {
+        return Items.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexpath: IndexPath)->UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexpath: IndexPath)->UITableViewCell {
         
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Cell")
         
         let object = Items[indexpath.row]
         
         cell.textLabel?.text = object.text
-                
+        
         return cell
     }
     
@@ -53,17 +60,17 @@ class TableViewController: UITableViewController {
     }
     
     
-        
-
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
